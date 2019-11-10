@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/hgulino/cdi-complaints/static/js/main.876119b2.chunk.js",
+    "main.js.map": "/hgulino/cdi-complaints/static/js/main.876119b2.chunk.js.map",
+    "runtime~main.js": "/hgulino/cdi-complaints/static/js/runtime~main.3188b3f2.js",
+    "runtime~main.js.map": "/hgulino/cdi-complaints/static/js/runtime~main.3188b3f2.js.map",
+    "static/js/2.3eb5047d.chunk.js": "/hgulino/cdi-complaints/static/js/2.3eb5047d.chunk.js",
+    "static/js/2.3eb5047d.chunk.js.map": "/hgulino/cdi-complaints/static/js/2.3eb5047d.chunk.js.map",
+    "index.html": "/hgulino/cdi-complaints/index.html",
+    "precache-manifest.4e109d6a6a013dc13b552ffc70ceccc5.js": "/hgulino/cdi-complaints/precache-manifest.4e109d6a6a013dc13b552ffc70ceccc5.js",
+    "service-worker.js": "/hgulino/cdi-complaints/service-worker.js"
+  }
+}
