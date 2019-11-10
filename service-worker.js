@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/hgulino/cdi-complaints/precache-manifest.4e109d6a6a013dc13b552ffc70ceccc5.js"
+  "/hgulino/cdi-complaints/precache-manifest.037d904326f4e05c6ccd1e32a27e6714.js"
 );
 
 self.addEventListener('message', (event) => {

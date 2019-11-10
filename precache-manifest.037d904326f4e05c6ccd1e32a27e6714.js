@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cdfe1aefed0fbe723374c625b12a283c",
+    "revision": "28d483ce82ee0c86116444c0c212214a",
     "url": "/hgulino/cdi-complaints/index.html"
   },
   {
