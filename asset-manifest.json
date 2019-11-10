@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/hgulino/cdi-complaints/static/js/main.876119b2.chunk.js",
-    "main.js.map": "/hgulino/cdi-complaints/static/js/main.876119b2.chunk.js.map",
-    "runtime~main.js": "/hgulino/cdi-complaints/static/js/runtime~main.3188b3f2.js",
-    "runtime~main.js.map": "/hgulino/cdi-complaints/static/js/runtime~main.3188b3f2.js.map",
-    "static/js/2.3eb5047d.chunk.js": "/hgulino/cdi-complaints/static/js/2.3eb5047d.chunk.js",
-    "static/js/2.3eb5047d.chunk.js.map": "/hgulino/cdi-complaints/static/js/2.3eb5047d.chunk.js.map",
-    "index.html": "/hgulino/cdi-complaints/index.html",
-    "precache-manifest.037d904326f4e05c6ccd1e32a27e6714.js": "/hgulino/cdi-complaints/precache-manifest.037d904326f4e05c6ccd1e32a27e6714.js",
-    "service-worker.js": "/hgulino/cdi-complaints/service-worker.js"
+    "main.js": "/cdi-complaints/static/js/main.876119b2.chunk.js",
+    "main.js.map": "/cdi-complaints/static/js/main.876119b2.chunk.js.map",
+    "runtime~main.js": "/cdi-complaints/static/js/runtime~main.90bf99cd.js",
+    "runtime~main.js.map": "/cdi-complaints/static/js/runtime~main.90bf99cd.js.map",
+    "static/js/2.4cc2c331.chunk.js": "/cdi-complaints/static/js/2.4cc2c331.chunk.js",
+    "static/js/2.4cc2c331.chunk.js.map": "/cdi-complaints/static/js/2.4cc2c331.chunk.js.map",
+    "index.html": "/cdi-complaints/index.html",
+    "precache-manifest.4a9c1ea89f15cfc2dd09009d6bc91d6f.js": "/cdi-complaints/precache-manifest.4a9c1ea89f15cfc2dd09009d6bc91d6f.js",
+    "service-worker.js": "/cdi-complaints/service-worker.js"
   }
 }
