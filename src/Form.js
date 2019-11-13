@@ -1,11 +1,11 @@
+import "date-fns";
+import DateFnsUtils from "@date-io/date-fns";
 import React, { useState } from "react";
 import useForm from "react-hook-form";
 import { saveAs } from "file-saver";
 import { pdf } from "@react-pdf/renderer";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import "date-fns";
 import PdfTemplate from "./PdfTemplate";
-import DateFnsUtils from "@date-io/date-fns";
 import {
   TextField,
   FormControl,
@@ -31,10 +31,16 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import SaveIcon from "@material-ui/icons/Save";
+// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+// import SaveIcon from "@material-ui/icons/Save";
 // import GitHubIcon from "@material-ui/icons/GitHub";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
+
+// class LocalizedUtils extends DateMomentUtils {
+//   getDatePickerHeaderText(date) {
+//     return moment(date).format("L");
+//   }
+// }
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -133,31 +139,73 @@ const ExpansionPanelDetails = withStyles(theme => ({
   }
 }))(MuiExpansionPanelDetails);
 
+function required(displayName) {
+  return function validateRequired(value) {
+    // console.log("VALIDATING: ", displayName, value);
+    return value !== null || `${displayName} is required.`;
+  };
+}
+
 export default function Form() {
   const classes = useStyles();
-  const { register, handleSubmit, setValue, errors } = useForm({
+  const { register, handleSubmit, setValue, getValues, errors } = useForm({
+    // defaultValues: {
+    //   dolDate: null,
+    //   cdiDateSubmitted: null,
+    //   drpDenial: "no",
+    //   otherReports: "no",
+    //   cdiReports: "no"
+    // }
     defaultValues: {
-      shopName: "Roadstarr",
-      shopPhone: "7147475484",
-      shopStreet: "1",
-      shopCity: "1",
-      shopZip: "1",
+      shopName: "ABC Motorsports",
+      shopPhone: "(310) 222-2222",
+      shopStreet: "8888 National Blvd",
+      shopCity: "Los Angeles",
+      shopState: "CA",
+      shopZip: "90000",
+      reportingPersonName: "John Doe 1",
+      reportingPersonPosition: "CEO",
+      insuranceCompanyName: "ABC Mutual Automobile Insurance Company",
+      insuranceRepName: "John Doe 2",
+      claimNumber: "SCA-123646464",
+      typeOfInsurance: "AUTO",
+      policyHolderName: "John Doe 3",
+      policyHolderStreet: "10190 ABC Court",
+      policyHolderCity: "Los Angeles",
+      policyHolderState: "CA",
+      policyHolderZip: "90001",
+      policyHolderNumber: "1346464",
+      complaintDetails:
+        "John Doe's car was wrecked and the insured's insurance company, State Farm, is not doing their due diligence to process his claim in a timely manner.",
       drpDenial: "no",
-      otherReports: "no",
-      cdiReports: "no",
       dolDate: null,
+      otherReports: "yes",
+      agencyName: "ABC",
+      fileNumber: "SCA-123646464",
+      cdiReports: "no",
+      cdiFileNumber: "SCA-123646464",
       cdiDateSubmitted: null
     }
   });
   const [radioValues, setReactSelectValue] = useState({
-    drpDenial: "yes",
+    drpDenial: "no",
     otherReports: "no",
     cdiReports: "no"
   });
-  const [selectedDate, setSelectedDate] = useState({
-    dolDate: null,
-    cdiDateSubmitted: null
-  });
+  // const [selectedDate, setSelectedDate] = useState({
+  //   dolDate: null,
+  //   cdiDateSubmitted: null
+  // });
+
+  const handleDateChangeCDI = date => {
+    console.log("cdiDateSubmitted CHANGED: ", date);
+    setValue("cdiDateSubmitted", date);
+  };
+
+  const handleDateChange = date => {
+    console.log("dolDate CHANGED: ", date);
+    setValue("dolDate", date);
+  };
 
   const generatePdfDocument = async data => {
     const blob = await pdf(<PdfTemplate {...data} />).toBlob();
@@ -172,31 +220,35 @@ export default function Form() {
   const onSubmit = data => {
     console.log(data);
     generatePdfDocument(data);
-    console.log("Finished");
   };
 
-  const onJsonSubmit = data => {
-    console.log(data);
-    generateJsonDocument(data);
-    console.log("Finished");
-  };
+  // const onJsonSubmit = data => {
+  //   console.log(data);
+  //   generateJsonDocument(data);
+  //   console.log("Finished");
+  // };
 
   const handleChange = e => {
     setValue(e.target.name, e.target.value);
     setReactSelectValue({ ...radioValues, [e.target.name]: e.target.value });
   };
-  const handleDateChange = id => date => {
-    setValue(id, date);
-    setSelectedDate({ ...selectedDate, [id]: date });
-  };
+
   React.useEffect(() => {
     register({ name: "drpDenial" });
-    register({ name: "dolDate" });
+    register({ name: "otherReports" });
+    register({ name: "cdiReports" });
+    register(
+      { name: "dolDate", type: "text" },
+      { validate: required("Date of loss") }
+    );
+    register({ name: "cdiDateSubmitted", type: "text" });
   }, [register]);
 
   const drpDenialBoolean = radioValues.drpDenial === "no" ? true : false;
   const otherReportsBoolean = radioValues.otherReports === "no" ? true : false;
   const cdiReportsBoolean = radioValues.cdiReports === "no" ? true : false;
+
+  const values = getValues();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -334,7 +386,7 @@ export default function Form() {
             label="Adjuster/representative name"
             margin="normal"
             variant="outlined"
-            name="claimNumber"
+            name="insuranceRepName"
             inputRef={register}
           />
         </Grid>
@@ -501,13 +553,15 @@ export default function Form() {
                       disableToolbar
                       inputVariant="outlined"
                       variant="dialog"
+                      error={errors.hasOwnProperty("dolDate")}
+                      helperText={errors.dolDate && errors.dolDate.message}
                       format="MM/dd/yyyy"
                       margin="normal"
                       id="date-picker-inline"
                       label="Date loss occurred or began"
                       name="dolDate"
-                      value={selectedDate.dolDate}
-                      onChange={handleDateChange("dolDate")}
+                      value={values.dolDate}
+                      onChange={handleDateChange}
                       KeyboardButtonProps={{
                         "aria-label": "change date"
                       }}
@@ -647,13 +701,18 @@ export default function Form() {
                       disableToolbar
                       inputVariant="outlined"
                       variant="dialog"
+                      error={errors.hasOwnProperty("cdiDateSubmitted")}
+                      helperText={
+                        errors.cdiDateSubmitted &&
+                        errors.cdiDateSubmitted.message
+                      }
                       format="MM/dd/yyyy"
                       margin="normal"
                       id="date-picker-inline"
                       label="Date submitted"
                       name="cdiDateSubmitted"
-                      value={selectedDate.cdiDateSubmitted}
-                      onChange={handleDateChange("cdiDateSubmitted")}
+                      value={values.cdiDateSubmitted}
+                      onChange={handleDateChangeCDI}
                       KeyboardButtonProps={{
                         "aria-label": "change date"
                       }}
@@ -702,7 +761,7 @@ export default function Form() {
               Generate Complaint
             </Button>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <Button
               onClick={handleSubmit(onJsonSubmit)}
               variant="contained"
@@ -712,8 +771,8 @@ export default function Form() {
             >
               Save as Template
             </Button>
-          </Grid>
-          <Grid item>
+          </Grid> */}
+          {/* <Grid item>
             <Button
               variant="contained"
               color="default"
@@ -722,7 +781,7 @@ export default function Form() {
             >
               Upload Template
             </Button>
-          </Grid>
+          </Grid> */}
           {/* <Grid item>
             <Button
               variant="contained"
