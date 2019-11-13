@@ -2,7 +2,7 @@
   "name": "cdi-complaint",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/hgulino/cdi-complaints/",
+  "homepage": "https://hgulino.github.io/cdi-complaints/",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -20,7 +20,8 @@
     "react-text-mask": "5.4.3"
   },
   "devDependencies": {
-    "typescript": "3.3.3"
+    "typescript": "3.3.3",
+    "gh-pages": "2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
