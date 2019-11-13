@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.js": "/cdi-complaints/static/js/main.876119b2.chunk.js",
-    "main.js.map": "/cdi-complaints/static/js/main.876119b2.chunk.js.map",
+    "main.js": "/cdi-complaints/static/js/main.80eddae2.chunk.js",
+    "main.js.map": "/cdi-complaints/static/js/main.80eddae2.chunk.js.map",
     "runtime~main.js": "/cdi-complaints/static/js/runtime~main.90bf99cd.js",
     "runtime~main.js.map": "/cdi-complaints/static/js/runtime~main.90bf99cd.js.map",
-    "static/js/2.4cc2c331.chunk.js": "/cdi-complaints/static/js/2.4cc2c331.chunk.js",
-    "static/js/2.4cc2c331.chunk.js.map": "/cdi-complaints/static/js/2.4cc2c331.chunk.js.map",
+    "static/js/2.06c8338a.chunk.js": "/cdi-complaints/static/js/2.06c8338a.chunk.js",
+    "static/js/2.06c8338a.chunk.js.map": "/cdi-complaints/static/js/2.06c8338a.chunk.js.map",
     "index.html": "/cdi-complaints/index.html",
-    "precache-manifest.4a9c1ea89f15cfc2dd09009d6bc91d6f.js": "/cdi-complaints/precache-manifest.4a9c1ea89f15cfc2dd09009d6bc91d6f.js",
-    "service-worker.js": "/cdi-complaints/service-worker.js"
+    "precache-manifest.bd987b95f0ec2f6a3bebf5c7d774cd41.js": "/cdi-complaints/precache-manifest.bd987b95f0ec2f6a3bebf5c7d774cd41.js",
+    "service-worker.js": "/cdi-complaints/service-worker.js",
+    "static/media/FreeSerif.ttf": "/cdi-complaints/static/media/FreeSerif.786d4942.ttf",
+    "static/media/FreeSerifBold.ttf": "/cdi-complaints/static/media/FreeSerifBold.e4b0fc11.ttf",
+    "static/media/FreeSerifItalic.ttf": "/cdi-complaints/static/media/FreeSerifItalic.5c18d825.ttf",
+    "static/media/OpenSans-Regular.ttf": "/cdi-complaints/static/media/OpenSans-Regular.d7d5d458.ttf",
+    "static/media/californiaSeal.jpg": "/cdi-complaints/static/media/californiaSeal.35036872.jpg"
   }
 }
