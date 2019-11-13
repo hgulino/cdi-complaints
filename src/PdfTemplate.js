@@ -1,47 +1,47 @@
 import React from "react";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Font, StyleSheet } from "@react-pdf/renderer";
+
+import Header from "./form/Header";
+import ShopFields from "./form/ShopFields";
+import ComplaintFields from "./form/ComplaintFields";
+
+import OpenSans from "./form/fonts/Open_Sans/OpenSans-Regular.ttf";
+import FreeSerif from "./form/fonts/FreeSerif/FreeSerif.ttf";
+import FreeSerifBold from "./form/fonts/FreeSerif/FreeSerifBold.ttf";
+import FreeSerifItalic from "./form/fonts/FreeSerif/FreeSerifItalic.ttf";
 
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    padding: 30
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1
+    paddingTop: 16,
+    paddingBottom: 30
   }
+});
+
+Font.register({
+  family: "Open Sans",
+  src: OpenSans
+});
+Font.register({
+  family: "FreeSerif",
+  src: FreeSerif
+});
+Font.register({
+  family: "FreeSerif Bold",
+  src: FreeSerifBold
+});
+Font.register({
+  family: "FreeSerif Italic",
+  src: FreeSerifItalic
 });
 
 // Create Document Component
 const PdfTemplate = props => (
   <Document>
     <Page size="Letter" style={styles.page}>
-      <View style={styles.section}>
-        <Text>{props.shopName}</Text>
-        <Text>{props.shopPhone}</Text>
-        <Text>{props.shopStreet}</Text>
-        <Text>{props.shopCity}</Text>
-        <Text>{props.shopState}</Text>
-        <Text>{props.shopZip}</Text>
-        <Text>{props.reportingPersonName}</Text>
-        <Text>{props.reportingPersonPosition}</Text>
-        <Text>{props.insuranceCompanyName}</Text>
-        <Text>{props.claimNumber}</Text>
-        <Text>{props.typeOfInsurance}</Text>
-        <Text>{props.policyHolderName}</Text>
-        <Text>{props.policyHolderStreet}</Text>
-        <Text>{props.policyHolderCity}</Text>
-        <Text>{props.policyHolderState}</Text>
-        <Text>{props.policyHolderZip}</Text>
-        <Text>{props.policyHolderNumber}</Text>
-        <Text>{props.agencyName}</Text>
-        <Text>{props.fileNumber}</Text>
-        <Text>{props.cdiFileNumber}</Text>
-        <Text>{props.complaintDetails}</Text>
-        <Text>{props.drpDenial}</Text>
-        <Text>{props.dolDate}</Text>
-      </View>
+      <Header />
+      <ShopFields {...props} />
+      <ComplaintFields {...props} />
     </Page>
   </Document>
 );
