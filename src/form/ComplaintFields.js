@@ -611,11 +611,11 @@ const ShopFields = props => (
           borderTopWidth: 0
         }}
       >
-        {/* <Text style={{ ...styles.data, marginTop: 0, marginBottom: 0 }}>
+        <Text style={{ ...styles.data, marginTop: 0, marginBottom: 0 }}>
           {props.cdiDateSubmitted !== null
             ? format(props.cdiDateSubmitted, "MM/dd/yyyy")
             : ""}
-        </Text> */}
+        </Text>
       </View>
       <View
         style={{
@@ -732,7 +732,7 @@ const ShopFields = props => (
         }}
       >
         <View style={{ ...styles.tableRow, borderBottomWidth: 0.5 }}>
-          <Text style={{ ...styles.data, paddingRight: 8 }}>12/31/2019</Text>
+          <Text style={{ ...styles.data, paddingRight: 8 }}>{format(new Date(), "MM/dd/yyyy")}</Text>
         </View>
       </View>
       <View
