@@ -149,43 +149,43 @@ function required(displayName) {
 export default function Form() {
   const classes = useStyles();
   const { register, handleSubmit, setValue, getValues, errors } = useForm({
-    // defaultValues: {
-    //   dolDate: null,
-    //   cdiDateSubmitted: null,
-    //   drpDenial: "no",
-    //   otherReports: "no",
-    //   cdiReports: "no"
-    // }
     defaultValues: {
-      shopName: "ABC Motorsports",
-      shopPhone: "(310) 222-2222",
-      shopStreet: "8888 National Blvd",
-      shopCity: "Los Angeles",
-      shopState: "CA",
-      shopZip: "90000",
-      reportingPersonName: "John Doe 1",
-      reportingPersonPosition: "CEO",
-      insuranceCompanyName: "ABC Mutual Automobile Insurance Company",
-      insuranceRepName: "John Doe 2",
-      claimNumber: "SCA-123646464",
-      typeOfInsurance: "AUTO",
-      policyHolderName: "John Doe 3",
-      policyHolderStreet: "10190 ABC Court",
-      policyHolderCity: "Los Angeles",
-      policyHolderState: "CA",
-      policyHolderZip: "90001",
-      policyHolderNumber: "1346464",
-      complaintDetails:
-        "John Doe's car was wrecked and the insured's insurance company, State Farm, is not doing their due diligence to process his claim in a timely manner.",
-      drpDenial: "no",
       dolDate: null,
-      otherReports: "yes",
-      agencyName: "ABC",
-      fileNumber: "SCA-123646464",
-      cdiReports: "no",
-      cdiFileNumber: "SCA-123646464",
-      cdiDateSubmitted: null
+      cdiDateSubmitted: null,
+      drpDenial: "no",
+      otherReports: "no",
+      cdiReports: "no"
     }
+    // defaultValues: {
+    //   shopName: "ABC Motorsports",
+    //   shopPhone: "(310) 222-2222",
+    //   shopStreet: "8888 National Blvd",
+    //   shopCity: "Los Angeles",
+    //   shopState: "CA",
+    //   shopZip: "90000",
+    //   reportingPersonName: "John Doe 1",
+    //   reportingPersonPosition: "CEO",
+    //   insuranceCompanyName: "ABC Mutual Automobile Insurance Company",
+    //   insuranceRepName: "John Doe 2",
+    //   claimNumber: "SCA-123646464",
+    //   typeOfInsurance: "AUTO",
+    //   policyHolderName: "John Doe 3",
+    //   policyHolderStreet: "10190 ABC Court",
+    //   policyHolderCity: "Los Angeles",
+    //   policyHolderState: "CA",
+    //   policyHolderZip: "90001",
+    //   policyHolderNumber: "1346464",
+    //   complaintDetails:
+    //     "John Doe's car was wrecked and the insured's insurance company, State Farm, is not doing their due diligence to process his claim in a timely manner.",
+    //   drpDenial: "no",
+    //   dolDate: null,
+    //   otherReports: "yes",
+    //   agencyName: "ABC",
+    //   fileNumber: "SCA-123646464",
+    //   cdiReports: "no",
+    //   cdiFileNumber: "SCA-123646464",
+    //   cdiDateSubmitted: null
+    // }
   });
   const [radioValues, setReactSelectValue] = useState({
     drpDenial: "no",
